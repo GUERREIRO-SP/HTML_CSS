@@ -1,0 +1,171 @@
+/* Importar fontes específicas para a HP */ 
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+/*
+    Converter todas as medidas (px) para (rem)
+    rem = px/16  =  24px/16 = 1.5rem
+*/
+
+/* Define variáveis globais para definição das cores */ 
+:root {
+    --cor-black: #000000;
+    --cor-white: #F6F6F6;
+    --cor-blue: #22D4FD;
+    --cor-hover: #272727;
+
+    --fonte_krona: "Krona One", sans-serif;
+    --fonte_montserra: "Montserrat", sans-serif;
+}
+
+/* Retira a margem e padding de todos os elementos da HP */ 
+* {
+    margin: 0;
+    padding: 0; 
+}
+
+body {
+    /* Utilizar 100% da página */ 
+    /* height: 100vh; */
+    width: 100%;
+    /*Fixa os elementos "dentro" do elemento "pai" */
+    box-sizing: border-box;
+    /* Define as cores do corpo da página */ 
+    background-color: var(--cor-black);
+    color: var(--cor-white);
+}
+
+.cabecalho {
+    /*
+        Se a propriedade padding tiver quatro valores: 
+                10px 5px 15px 20px;
+                2%   5%  15%  20%;
+            superior é de 10px
+            direito é 5px
+            inferior é de 15px
+            esquerdo é 20px
+    */
+    padding: 2% 0% 0% 15%; 
+}
+
+.cabecalho__menu {
+    display: flex;
+    gap: 80px;
+}
+
+.cabecalho__menu__link {
+    font-size: 1.5rem;  /*24px;*/  
+    font-family: var(--fonte_montserra);
+    font-weight: 600;
+    color: var(--cor-blue);
+    text-decoration: none;
+}
+
+.titulo-destaque {
+    /* Define a cor somente da classe informada */ 
+    color: var(--cor-blue);
+}
+
+.apresentacao {
+    padding: 5% 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 82px;
+}
+
+.apresentacao__conteudo{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.apresentacao__conteudo__titulo {
+    font-size: 2.25rem;  /*36px;*/ 
+    font-family: var(--fonte_krona);
+}
+
+.apresentacao__conteudo__texto {
+    font-size: 1.5rem;  /*24px;*/  
+    font-family: var(--fonte_montserra);
+}
+
+.apresentacao__conteudo__texto a{
+    text-decoration: none;
+    color: var(--cor-white);
+}
+
+.apresentacao__links {
+    display: flex;
+    flex-direction: column;         /*Ajusta os elementos na vertical */
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;                      /*Afasta os elementos em 32px */
+}
+
+.apresentacao__conteudo__titulo {
+    font-family: var(--fonte_krona);
+    font-weight: 400;
+    font-size: 1.5rem;  /*24px;*/
+    text-decoration: none;
+}
+
+.apresentacao__links__navegacao {
+    /* background-color: #22D4FD; */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    border: 2px solid var(--cor-blue);
+    width: 50%;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 1.5rem;  /*26px;*/
+    font-weight: 600;
+    padding: 21.5px 0;
+    text-decoration: none;
+    color: var(--cor-white);
+    font-family: var(--fonte_montserra);
+}
+
+/*Altera (evidencia) os elementos botões */
+.apresentacao__links__link:hover {
+    background-color: var(--cor-hover)
+}
+
+.apresentacao__imagem {
+    width: 50%;
+}
+
+.rodape {
+    color: var(--cor-black);
+    background-color: var(--cor-blue);
+    /*display: flex;
+    justify-content: center;*/
+    padding: 24px;
+    text-align: center;
+    font-family: var(--fonte_montserra);
+    font-size: 1.5rem;  /*24px;*/
+    font-weight: 400;
+}
+
+/*
+    Verifica se o tamanho da tela (dispositivo) é menor que 1200
+    aciona os ajustes nas tags informadas, nesse caso a imagem
+    será exibida em coluna e a opção reverse, troca a imagem de 
+    lugar.
+*/
+@media (max-width: 1200px) {
+    .cabecalho {
+        padding: 10%;
+    }
+    .cabecalho__menu {
+        justify-content: center;
+    }
+        .apresentacao {
+        flex-direction: column-reverse; 
+        padding: 5%;
+    }
+    .apresentacao__conteudo{
+        width: auto;
+    }
+}
